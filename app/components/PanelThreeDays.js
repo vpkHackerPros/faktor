@@ -6,24 +6,22 @@ import StyledPanel from './StyledPanel.js'
 import Button from './Button.js'
 import {SocketProvider, useSocket} from '../hooks/useSocket.js'
 
-const Container = styled.div `
+const Container = styled.div`
   box-sizing: border-box;
   display: grid;
   height: 300px;
   grid-template-rows: 70% 30%;
   grid-template-columns: 50% 50%;
-  background-color: white;
   column-gap: 5px;
   padding: 10px;
   margin: 5px;
   border-radius: 5px;
-  background-color: white;
 `
-const Top = styled.div `
+const Top = styled.div`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
 `
-const Bottom = styled.div `
+const Bottom = styled.div`
   grid-column: 2 / 3;
   grid-row: 2 / 3;
 `

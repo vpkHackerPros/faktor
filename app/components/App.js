@@ -1,48 +1,34 @@
-import styles from './App.css'
 import React, { useState, useEffect } from 'react'
-import TextInput from './FastTextInput.js'
-import Panel from './PanelThreeDays.js'
-import OneDayPanel from './PanelOneDay.js'
-import PanelButtons from './PanelArsoData.js'
 import {SocketProvider} from '../hooks/useSocket.js'
 
+import SideStoryPanel from './SideStoryPanel.js'
+import PodpisiPanel from './PodpisiPanel.js'
 import styled, { createGlobalStyle } from 'styled-components'
+
 var fromXML = require("from-xml").fromXML;
 
 
-/*const url = "https://meteo.arso.gov.si/uploads/probase/www/fproduct/text/sl/forecast_SI_OSREDNJESLOVENSKA_latest.xml"
-fetch(url)
-    .then(function(response){
-      return response.text();
-    })
-    .then(function(data) {
-      //console.log(data);
-      //let parser = new DOMParser();
-      //xmlDoc = praser.parseFromString(data, 'text/xml');
-      //console.log(xmlDoc);
-      const xml  = fromXML(data);
-      console.log(xml);
-      console.log(xml.data.metData[0].txsyn);
-    });
-*/
 const GlobalStyle = createGlobalStyle`
   :root {
-    --mainColor1: #020024;
-    --mainColor2: #30c4ae;
-    --textColor: #757575;
+    --mainColor1: #2F4858; //temno modra
+    --mainColor2: #336699; //svetlej modra
+    --textColor: #119977;  //zelena
+    --background: white;
   }
   #root {
     height: 100%
   }
   body {
-    font-family: sans-serif;
     height: 100%;
     width: 100%;
-    margin: 0;
+    margin: auto;
     position: relative;
     overflow: scroll;
     font-size: 1.5em;
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(48,196,174,1) 100%);
+    background: var(--background);
+
+    //ozadje
+    background-color: var(--mainColor1);
   }
   html {
     height: 100%;
@@ -51,19 +37,26 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 const AppContainer = styled.div`
-  color: var(--mainColor1);
+  color: var(--background);
   height: 100%;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(48,196,174,1) 100%);
 `
 
+const AppTitle = styled.h1`
+  font-size: 100px;
+  font-weight: black;
+  text-align: center;
+  color: white;
+  letter-spacing: 28px;
+  text-shadow: 5px 5px 0px var(--textColor), -5px -5px 0px var(--mainColor2);
+`
 
 export default function App (props) {
   return (
     <SocketProvider connection={{ip:'localhost', port:6100}}>
       <GlobalStyle/>
-      <PanelButtons/>
-      <OneDayPanel/>
-      <Panel/>
+      <AppTitle>LJ TV POPOLDNE</AppTitle>
+      <PodpisiPanel />
+      <SideStoryPanel />
     </SocketProvider>
-  );
+  )
 }

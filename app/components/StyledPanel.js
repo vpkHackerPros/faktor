@@ -7,11 +7,11 @@ const Container = styled.div`
   width: 99%;
   display: flex;
   flex-direction:row;
-  color: var(--mainColor1);
+  color: var(--mainColor2);
   font-size: 1em;
   padding: 10px;
   margin: 5px;
   border-radius: 5px;
-  background-color: white;
+  background-color: none;
 `
 export default Container

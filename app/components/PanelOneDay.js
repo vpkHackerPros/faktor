@@ -5,7 +5,6 @@ import TextInput from './FastTextInput.js'
 import StyledPanel from './StyledPanel.js'
 import Button from './Button.js'
 import FastTextInput from './FastTextInput.js'
-import ContentList from './ContentIcons.js'
 import {SocketProvider, useSocket} from '../hooks/useSocket.js'
 
 const Container = styled.div `
@@ -85,9 +84,6 @@ function OneDayPanel(props){
         <Button onClick = { handleIN }>IN</Button>
         <Button onClick = { handleOUT }>OUT</Button>
       </Middle>
-      <Right>
-        <ContentList/>
-      </Right>
     </Container>
   )
 }

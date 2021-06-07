@@ -5,17 +5,22 @@ import styled from 'styled-components';
 const Input = styled.input`
   box-sizing: border-box;
   padding: 3px;
-  background-color: white;
-  border: 1px solid lightgrey;
-  border-radius: 4px;
-  height: 80%;
+  background-color: var(--background);
+  border: 3px solid var(--background);
+  border-radius: 10vh;
+  height: 60px;
   width: 100%;
-  color: black;
+  color: var(--mainColor2);
   outline: none;
-  font-size: 0.5em;
+  font-size: 30px;
   flex: 1;
+  text-align: center;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
   &:focus {
-    background-color: lightgrey;
+    border: 3px solid var(--textColor);
+    color: var(--mainColor1);
   }
 `
 
